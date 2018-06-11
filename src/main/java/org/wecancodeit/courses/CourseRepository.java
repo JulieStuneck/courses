@@ -10,7 +10,19 @@ import org.springframework.stereotype.Repository;
 public class CourseRepository {
 
 	private Map<Long, Course> courseList = new HashMap<>();
+	
+	public CourseRepository() {
+		Course java = new Course(1L, "Java", "Java Description");
+		Course javascript = new Course(2L, "Javascript", "Javascript Description");
+		Course spring = new Course(3L, "Spring", "Spring Description");
+		
+		courseList.put(java.getId(), java);
+		courseList.put(javascript.getId(), javascript);
+		courseList.put(spring.getId(), spring);
 
+	}
+
+		//constructor for testing purposes
 	public CourseRepository(Course...courses) {
 		for(Course course: courses) {
 		courseList.put(course.getId(), course);
